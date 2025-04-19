@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitWithDyl - Dedication to Discomfort</title>
+  <style>
+    body {
+      background-color: #100e15;
+      color: #87878c;
+      font-family: Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #04b1cb, #5c2597);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+      transition: all 0.5s ease-in-out;
+      text-align: center;
+    }
+
+    header.shrink {
+      height: auto;
+      padding: 1rem 0;
+    }
+
+    header img {
+      max-width: 480px;
+      width: 45vw;
+      transition: all 0.5s ease-in-out;
+    }
+
+    header.shrink img {
+      max-width: 120px;
+      width: 15vw;
+    }
+
+    .motto {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards 1s;
+    }
+
+    .learn-more {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 2s forwards 2.5s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .arrow {
+      margin-top: 0.5rem;
+      width: 20px;
+      height: auto;
+      animation: bounce 2s infinite;
+    }
+
+    .section {
+      padding: 4rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(6px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <img src="https://i.imgur.com/9AQJvDQ.png" alt="FitWithDyl Logo">
+    <div class="motto gradient-text">Dedication to Discomfort</div>
+    <div class="learn-more gradient-text" id="scrollDown">
+      Learn More
+      <img src="https://i.imgur.com/0OxGr46.png" alt="Down Arrow" class="arrow">
+    </div>
+  </header>
+
+  <section class="section" id="missionSection">
+    <h2 class="gradient-text">Meet Dylan Niederauer</h2>
+    <p>
+      Based out of Long Island, NY, Dylan Niederauer is a fitness coach with years of hands-on experience in personal training, strength conditioning, and nutrition planning. With a passion for self-discipline and a no-nonsense approach to growth, Dylan pushes his clients past their comfort zones and into their full potential.
+    </p>
+    <p>
+      The mission of FitWithDyl is to cultivate a mindset that thrives on discomfort, challenge, and change. We believe the road to physical excellence and mental strength is not paved with shortcuts or comfort, but with perseverance, sacrifice, and the courage to face your limits head-on. Our goal is to inspire people to take control of their lives—building discipline, grit, and confidence through consistent hard work.
+    </p>
+    <p>
+      At FitWithDyl, fitness is more than just sets and reps—it's a lifestyle philosophy. We teach our clients that the way you train reflects the way you live. Through tailored workout plans, clean nutrition, and accountability-driven coaching, we create an environment that pushes each person to not just look better, but to live better. Every session, every rep, every drop of sweat is an investment in a stronger, sharper, more resilient version of yourself.
+    </p>
+    <p>
+      Dylan’s approach is grounded in authenticity and relentless work ethic. He meets every client where they are but refuses to let them stay there. Whether you're a beginner starting from scratch or an athlete looking for your edge, the FitWithDyl system is designed to break barriers and forge results. The mission is simple: face discomfort, embrace the process, and unlock the version of you that refuses to quit.
+    </p>
+    <p>
+      This isn’t just about fitness. It’s about mindset. It’s about waking up with purpose, showing up with intensity, and walking out stronger than yesterday. That’s the standard. That’s FitWithDyl.
+    </p>
+  </section>
+
+  <script>
+    const header = document.getElementById('mainHeader');
+    const mission = document.getElementById('missionSection');
+    const scrollBtn = document.getElementById('scrollDown');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('shrink');
+        mission.classList.add('visible');
+      } else {
+        header.classList.remove('shrink');
+        mission.classList.remove('visible');
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: mission.offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
